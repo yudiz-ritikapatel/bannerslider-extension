@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yudiz
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Yudiz
+ * @package     Yudiz_BannerSlider
+ * @copyright   Copyright (c) 2023 Yudiz (https://www.Yudiz.com/)
+ */
+-->
+<page layout="admin-2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+    	<referenceContainer name="left">
+            <block class="Yudiz\BannerSlider\Block\Adminhtml\Grid\Edit\Tabs" name="banner_add_tabs"/>
+        </referenceContainer>
+        <referenceContainer name="content">
+           <block class="Yudiz\BannerSlider\Block\Adminhtml\Grid\AddRow" name="add_row" cacheable="false" />
+        </referenceContainer>
+    </body>
+</page>

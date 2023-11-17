@@ -1,0 +1,34 @@
+type Query {
+    YudizBannerSlider(id: Int!): SliderData @resolver(class: "Yudiz\\BannerSlider\\Model\\Resolver\\BannersliderData") @doc(description: "Get Slider Collection by Slider Id")
+}
+
+type SliderData {
+    slider_id: Int @doc(description: "Get Slider Id")
+    created_at: String @doc(description: "Get Slider Created At time")
+    updated_at: String @doc(description: "Get Slider Updated At time")
+    status: String @doc(description: "Get Slider status")
+    name: String @doc(description: "Get Slider name")
+    description: String @doc(description: "Get Slider Description")
+    autoplay: String @doc(description: "Get Slider Autoplay Value")
+    autoplay_timeout: String @doc(description: "Get Slider AutoplayTimeout Value")
+    reverse_slide: String @doc(description: "Get Slider reverse_slider Value")
+    previous_next: String @doc(description: "Get Slider previous_next button")   
+    show_dots: String @doc(description: "Get Slider Dots Navigation button")   
+    margin: String @doc(description: "Get Slider Margin Value")
+    effect: String @doc(description: "Get Slider effect Value")
+    bannerdata: [BannerData] @doc(description: "Get Banner Data") 
+}
+
+type BannerData {
+    banner_id: Int @doc(description: "Get Banner Id")
+    creation_time: String @doc(description: "Get Banner Created At time")
+    update_time: String @doc(description: "Get Banner Updated At time")
+    status: String @doc(description: "Get Banner status")
+    name: String @doc(description: "Get Banner Name")
+    start_date: String @doc(description: "Get Banner Start_Date")
+    end_date: String @doc(description: "Get Banner End_Date")
+    description: String @doc(description: "Get Banner Description")
+    mediatype: String @doc(description: "Get Banner MediaType")
+    uploadfiles: String @doc(description: "Get Banner UploadFiles")
+    externalvideo: String @doc(description: "Get Banner ExternalVideo")
+}

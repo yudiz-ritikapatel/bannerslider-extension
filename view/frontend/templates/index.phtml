@@ -1,0 +1,157 @@
+<?php
+/**
+ * Yudiz
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to a newer
+ * version in the future.
+ *
+ * @category    Yudiz
+ * @package     Yudiz_BannerSlider
+ * @copyright   Copyright (c) 2023 Yudiz (https://www.Yudiz.com/)
+ */
+
+$sliderData=$block->getSlider()[0];
+$mediaPath = $block->getMediaPath("Yudiz/BannerSlider/");
+$bannerCollections = $block->getBanner();
+$isYoutubeVideo=$block->getIsYoutubeVideo();
+
+?>
+<style>
+    .carousel-wrap .image-container img,
+    .carousel-wrap .video-container video,
+    .carousel-wrap .youtube-video iframe {
+        width: 100%;
+        height: 100%;        
+    }
+    .carousel-wrap { padding: 0px; width: 100%; }
+    .carousel-wrap .image-container img , .carousel-wrap .video-container video { object-fit: cover; }
+</style>
+<div class="carousel-wrap">
+    <div class="owl-carousel">
+        <?php foreach ($bannerCollections as $data): ?>
+            <?php
+            if ($data['mediatype'] == 1) {
+                $fileExtension=$block->getPathInformation($mediaPath.$data['uploadfiles']);
+                $isImage = in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif']);
+                $isVideo = in_array($fileExtension, ['mp4']);
+                $isYouTubeLink = false;
+            }
+            if (preg_match('/youtube\.com|youtu\.be/', $data['externalvideo'])) {
+                $isYouTubeLink = true;
+            }
+            if ($data['mediatype'] == 1): ?>
+                <?php if ($isImage): ?>
+                    <!-- Image -->
+                    <div class="item image-container">
+                       <img src="<?= $block->escapeHtml($mediaPath . $data['uploadfiles']) ?>">
+                    </div>
+                <?php elseif ($isVideo): ?>
+                    <!-- Video -->
+                    <div class="item video-container">
+                        <video controls muted>
+                            <source src="<?= $block->escapeHtml($mediaPath . $data['uploadfiles']) ?>" type="video/mp4">
+                        </video>
+                    </div>
+                <?php endif; ?>
+            <?php elseif ($data['mediatype'] == 2): ?>
+                <?php if ($isYouTubeLink): ?>
+                    <!-- YouTube Video -->
+                    <div class="item youtube-video">
+                        <?php
+                        $videoUrl = $data['externalvideo'];
+                        $videoId = '';
+                        if (preg_match('/\?v=([a-zA-Z0-9_-]+)/i', $videoUrl, $matches)) {
+                            $videoId = $matches[1];
+                        }
+                        $embedUrl = "https://www.youtube.com/embed/$videoId?rel=0&amp;showinfo=0";
+                        ?>
+                        <iframe id="iframevideo"
+                                width="100%"
+                                height="100%"
+                                src="<?= $block->escapeHtml($embedUrl) ?>"
+                                frameborder="0"
+                                allow="autoplay; fullscreen">
+                        </iframe>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+</div>
+
+<script>
+    require(['jquery', 'owlcarousel'], function($) {
+        $(document).ready(function() {
+            var isYoutubeVideo = <?= $isYoutubeVideo == 1 ? 'true' : 'false' ?>;
+            if (isYoutubeVideo == true) {
+                const iframe = document.getElementById('iframevideo');
+                var nowPlaying = "none";
+                iframe.addEventListener('mouseenter', function() {
+                    nowPlaying = iframe.getAttribute('src');
+                    iframe.setAttribute('src', nowPlaying + '&autoplay=1');
+                });
+                iframe.addEventListener('mouseout', function() {
+                    nowPlaying = iframe.getAttribute('src');
+                    nowPlaying = nowPlaying.replace('&autoplay=1', '');
+                    iframe.setAttribute('src', nowPlaying);
+                });
+            }
+
+            var PreviousNext = <?= $sliderData['previous_next'] == 1 ? 'true' : 'false' ?>;
+            var AutoPlay = <?=  $sliderData['autoplay'] == 1 ? 'true' : 'false' ?>;
+            var Effect = <?=  $sliderData['effect'] == 1 ? 'true' : 'false' ?>;
+            var AutoPlayTimeout = <?= $block->escapeJs($sliderData['autoplay_timeout']) ?>;
+            var Margin = <?= $block->escapeJs($sliderData['margin']) ?>;
+            var Reverseslide = <?= $sliderData['reverse_slide'] == 1 ? 'true' : 'false' ?>;
+            var ShowDots = <?= $sliderData['show_dots'] == 1 ? 'true' : 'false' ?>;
+
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                rtl: Reverseslide,
+                margin: Margin,
+                nav: PreviousNext,    
+                navText: [
+                    "<svg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 320 512'>" +
+                    "<path d='M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 " +
+                    "45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-" +
+                    "12.5-45.3 0l-160 160z'/></svg>",
+                    "<svg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 320 512'>" +
+                    "<path d='M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5 " +
+                    "-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-" +
+                    "12.5 45.3 0l160 160z'/></svg>"
+                ],
+                dots: ShowDots,
+                autoplay: AutoPlay,
+                autoplayTimeout: AutoPlayTimeout,
+                autoplayHoverPause: true,
+                autoHeight:true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                }
+            });
+
+            $('.owl-carousel .item video').hover(
+                function() {
+                    this.play();
+                },
+                function() {
+                    this.pause();
+                }
+            );
+            if (Effect == 1) {
+                function autoFade() {
+                    var bannerItem = $('.owl-carousel .item');
+                    bannerItem.fadeOut(2000, function() { // 2 seconds fade out
+                        bannerItem.fadeIn(5000); // 5 seconds fade in
+                    });
+                }
+                autoFade();
+                setInterval(autoFade, 7000); // Adjust the interval time (in milliseconds) as needed
+            }
+        });
+    });
+</script>

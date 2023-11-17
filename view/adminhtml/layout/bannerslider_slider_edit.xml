@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yudiz
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Yudiz
+ * @package     Yudiz_BannerSlider
+ * @copyright   Copyright (c) 2023 Yudiz (https://www.Yudiz.com/)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Yudiz\BannerSlider\Block\Adminhtml\Slider\Edit" name="bannerslider_slider_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Yudiz\BannerSlider\Block\Adminhtml\Slider\Edit\Tabs" name="bannerslider_slider_edit_tabs">
+                <block class="Yudiz\BannerSlider\Block\Adminhtml\Slider\Edit\Tab\Main" name="bannerslider_slider_edit_tab_main"/>
+                <block class="Yudiz\BannerSlider\Block\Adminhtml\Slider\Edit\Tab\Effect" name="effects"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">bannerslider_slider_edit_tab_main</argument>
+                </action>
+                 <action method="addTab">
+                   <argument name="name" xsi:type="string">effects</argument>
+                    <argument name="block" xsi:type="string">effects</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">attachment_banners</argument>
+                    <argument name="block" xsi:type="array">
+                        <item name="label" xsi:type="string">Select Banners</item>
+                        <item name="title" xsi:type="string">Select Banners</item>
+                        <item name="url" xsi:type="helper" helper="Yudiz\BannerSlider\Helper\Data::getBannersGridUrl"></item>
+                        <item name="class" xsi:type="string">ajax</item>
+                    </argument>
+                </action>
+                
+            </block>
+        </referenceContainer>
+    </body>
+</page>

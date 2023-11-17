@@ -1,0 +1,21 @@
+/**
+ * Yudiz
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Yudiz
+ * @package     Yudiz_BannerSlider
+ * @copyright   Copyright (c) 2023 Yudiz (https://www.Yudiz.com/)
+ */
+
+ .admin__menu .level-0.item-bannerslider>a:before { /* bannerslider is name of menu.xml parent  */
+    content: url('../images/yudiz_logo.jpg');
+    height: 28px;
+    margin: 0 auto;
+    width: 30px;
+    margin-bottom: 5px; /* Add space (adjust the value as needed) */
+    display: block; /* Ensures that margin-bottom works properly */
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yudiz
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Yudiz
+ * @package     Yudiz_BannerSlider
+ * @copyright   Copyright (c) 2023 Yudiz (https://www.Yudiz.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Yudiz_BannerSlider::bannerslider" title="Yudiz BannerSlider" module="Yudiz_BannerSlider" sortOrder="100" resource="Yudiz_BannerSlider::bannerslider"/>
+        <add id="Yudiz_BannerSlider::manager" title="Manage Slider" module="Yudiz_BannerSlider" sortOrder="20" parent="Yudiz_BannerSlider::bannerslider" action="bannerslider/slider" resource="Yudiz_BannerSlider::manager"/>
+        <add id="Yudiz_BannerSlider::add_banner" title="Manage Banner" module="Yudiz_BannerSlider" sortOrder="10" parent="Yudiz_BannerSlider::manager" action="bannerslider/grid" resource="Yudiz_BannerSlider::add_banner"/>
+        <add id="Yudiz_BannerSlider::configuration" title="Configuration" module="Yudiz_BannerSlider" sortOrder="1000" action="admin/system_config/edit/section/bannerslider/" resource="Yudiz_BannerSlider::configuration" parent="Yudiz_BannerSlider::bannerslider"/>
+    </menu>
+</config>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Yudiz
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Yudiz
+ * @package     Yudiz_BannerSlider
+ * @copyright   Copyright (c) 2023 Yudiz (https://www.Yudiz.com/)
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root" label="Root">
+        <block class="Yudiz\BannerSlider\Block\Adminhtml\Slider\Edit\Tab\Banners" name="bannerslider.edit.tab.banners"/>
+        <block class="Magento\Backend\Block\Widget\Grid\Serializer" name="banners_grid_serializer">
+            <arguments>
+                <argument name="grid_block" xsi:type="string">bannerslider.edit.tab.banners</argument>
+                <argument name="callback" xsi:type="string">getSelectedBanners</argument>
+                <argument name="input_element_name" xsi:type="string">banners</argument>
+                <argument name="reload_param_name" xsi:type="string">bannerslider_banners</argument>
+            </arguments>
+        </block>
+    </container>
+</layout>
