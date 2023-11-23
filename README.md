@@ -25,7 +25,7 @@ To install the Yudiz BannerSlider Extension via Composer, follow these steps in 
 
 Run the following command:
 ```shell
-composer require yudiz/banner-slider-extension avada/module-proofo
+composer require yudiz/banner-slider-extension
 ```
 After a successful installation, execute the following commands:
 

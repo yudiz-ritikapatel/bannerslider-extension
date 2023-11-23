@@ -98,6 +98,8 @@ class Showdata extends Template
         $collections = $this->collectionBannerFactory->create();
         $collections->addFieldToFilter('banner_id', ['in' => $banner_id]);
         $collections->addFieldToFilter('status', 1);
+        $collections->addFieldToFilter('start_date', ['lteq' => date('Y-m-d H:i:s')])
+        ->addFieldToFilter('end_date', ['gteq' => date('Y-m-d H:i:s')]);
         return $collections;
     }
 
@@ -121,10 +123,10 @@ class Showdata extends Template
         return $collection;
     }
 
-    public function getMediaPath($path = '')
+    public function getMediaPath()
     {
         $mediaUrl = $this->storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
-        return $mediaUrl . $path;
+        return $mediaUrl;
     }
 
     public function getPathInformation($filePath)
@@ -146,12 +148,7 @@ class Showdata extends Template
     {
         $sliderId = $this->getData('slider_id');
         $sliderCollection = $this->getSliderCollection($sliderId);
-        $isModuleEnabled = $this->getModuleVisibility();
-    
-        if ($isModuleEnabled == 0 || empty($sliderCollection->getData())) {
-            return null;
-        }
-    
+
         return $sliderCollection->getData();
     }
     

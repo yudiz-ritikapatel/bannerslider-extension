@@ -71,7 +71,13 @@ class Thumbnail extends \Magento\Ui\Component\Listing\Columns\Column
 
                 if ($item['mediatype'] == 1 && !empty($item['uploadfiles'])) {
                     $url = $this->imageHelper->getBaseUrl() . $item['uploadfiles'];
-                    $label = $item['uploadfiles'];
+                    if (strpos($item['uploadfiles'], 'mp4') !== false) {
+                        $label = 'Video';
+                    } elseif (strpos($item['uploadfiles'], 'gif') !== false) {
+                        $label = 'Giphy Image';
+                    } else {
+                        $label = 'Image';
+                    }
                 } else {
                     $url = $item['externalvideo'];
                     $label = $item['externalvideo'];
@@ -86,7 +92,6 @@ class Thumbnail extends \Magento\Ui\Component\Listing\Columns\Column
                 ];
             }
         }
-
         return $dataSource;
     }
 }

@@ -59,74 +59,94 @@ class Save extends \Magento\Backend\App\Action
         $this->uploaderFactory = $uploaderFactory;
         $this->helperData = $helperData;
     }
-
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
         $filedata = $this->getRequest()->getFiles('uploadfiles');
         $fileName = ($filedata && array_key_exists('name', $filedata)) ? $filedata['name'] : null;
-
         if (!$data) {
             $this->_redirect('bannerslider/grid/addrow');
             return;
         }
-
         try {
             $rowData = $this->extensionFactory->create();
             $rowData->setData($data);
-
             if (isset($data['banner_id'])) {
-                $data = (array)$this->getRequest()->getPost();
-                if ($fileName) {
-                    $this->handleMediaType($data, $rowData);
-                } elseif (isset($data['uploadfiles']['delete']) && $data['uploadfiles']['delete'] == 1) {
-                    $this->messageManager->addSuccessMessage(__("deleted Successfully."));
-                    $this->_redirect('*/*/index');
-                } else {
-                    $this->handleMediaType($data, $rowData);
-                }
-
-                $rowData->setBannerId($data['banner_id']);
-                $rowData->save();
-
-                $this->messageManager->addSuccessMessage(__("Banner Content Data Updated Successfully."));
-                $this->handleRedirect($rowData);
+                $this->updateBannerData($data, $filedata, $rowData, $fileName);
             } else {
-                // Create a new record
-                $this->handleMediaType($data, $rowData);
-                $rowData->save();
-                $this->messageManager->addSuccessMessage(__('Banner Content Data has been Added successfully.'));
-                $this->handleRedirect($rowData);
+                $this->createNewRecord($data, $filedata, $rowData, $fileName);
             }
         } catch (\Exception $e) {
-            $this->messageManager->addErrorMessage(__($e->getMessage()));
+            $this->messageManager->addError(__($e->getMessage()));
         }
-
         $this->_redirect('bannerslider/grid/index');
     }
 
-    private function handleMediaType(&$data, $rowData)
+    private function updateBannerData($data, $filedata, $rowData, $fileName)
+    {
+        // Update existing record
+        if ($fileName) {
+            $this->processFileName($data, $filedata, $rowData);
+        } elseif (isset($data['uploadfiles']['delete']) && $data['uploadfiles']['delete'] == 1) {
+            $this->messageManager->addErrorMessage(__("You Can Not delete the image because of Required Field."));
+            $this->_redirect('*/*/index');
+        } else {
+            $this->handleMediaType($data, $rowData);
+        }
+        $rowData->setBannerId($data['banner_id']);
+        $rowData->save();
+        $this->handleSuccessRedirect($rowData);
+    }
+
+    private function createNewRecord($data, $filedata, $rowData, $fileName)
+    {
+        // Create a new record
+        if ($fileName) {
+            $this->processFileName($data, $filedata, $rowData);
+        } elseif ($data['mediatype'] == 2) {
+            $this->handleMediaType($data, $rowData);
+        } elseif ($data['mediatype'] == 0) {
+            $this->messageManager->addErrorMessage(__('Select Media Type'));
+            $this->_redirect('*/*/addrow');
+            return;
+        }
+        $rowData->save();
+        $this->handleSuccessRedirect($rowData);
+    }
+
+    private function processFileName(&$data, $filedata, $rowData)
     {
         if ($data['mediatype'] == 1) {
-            $filePath = $this->helperData->getImageUploader();
+            $filePath ="Yudiz/BannerSlider/". $this->helperData->getImageUploader();
             $data['uploadfiles'] = $filePath;
-            $data['externalvideo'] = "";
-            $rowData->setData($data);
         } elseif ($data['mediatype'] == 2) {
             $filePath = $data['externalvideo'];
             $data['externalvideo'] = $filePath;
-            $data['uploadfiles'] = "";
-            $rowData->setData($data);
-        } elseif ($data['mediatype'] == 0) {
-            $this->messageManager->addErrorMessage(__('Select Media Type'));
-            $this->_redirect('*/*/index');
         }
+        $rowData->setData($data);
     }
 
-    private function handleRedirect($rowData)
+    private function handleMediaType($data, $rowData)
     {
+        if ($data['mediatype'] == 1) {
+            $data['uploadfiles'] = $data['uploadfiles']['value'];
+        } elseif ($data['mediatype'] == 2) {
+            $filePath = $data['externalvideo'];
+            $data['externalvideo'] = $filePath;
+            $data['uploadfiles'] = null;
+        }
+        $rowData->setData($data);
+    }
+
+    private function handleSuccessRedirect($rowData)
+    {
+        $this->messageManager->addSuccessMessage(
+            isset($data['banner_id'])
+                ? __("Banner Content Data Updated Successfully.")
+                : __("Banner Content Data has been Added successfully.")
+        );
         if ($this->getRequest()->getParam('back')) {
-            $this->_redirect('*/*/addrow', ['banner_id' => $rowData->getId(), '_current' => true]);
+            $this->_redirect('*/*/addrow', ['id' => $rowData->getId(), '_current' => true]);
         } else {
             $this->_redirect('*/*/index');
         }

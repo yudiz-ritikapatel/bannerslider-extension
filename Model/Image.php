@@ -22,12 +22,6 @@ use Magento\Framework\App\Filesystem\DirectoryList;
 class Image
 {
     /**
-     * media sub folder
-     * @var string
-     */
-    protected $subDir = 'Yudiz/BannerSlider/';
-
-    /**
      * url builder
      *
      * @var \Magento\Framework\UrlInterface
@@ -56,6 +50,6 @@ class Image
      */
     public function getBaseUrl()
     {
-        return $this->urlBuilder->getBaseUrl(['_type' => UrlInterface::URL_TYPE_MEDIA]) . $this->subDir;
+        return $this->urlBuilder->getBaseUrl(['_type' => UrlInterface::URL_TYPE_MEDIA]);
     }
 }

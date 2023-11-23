@@ -120,6 +120,8 @@ class Banners extends \Magento\Backend\Block\Widget\Grid\Extended
     {
         $collection = $this->extensionCollectionFactory->create();
         $collection->addFieldToFilter('status', 1);
+        $collection->addFieldToFilter('start_date', ['lteq' => date('Y-m-d H:i:s')])
+        ->addFieldToFilter('end_date', ['gteq' => date('Y-m-d H:i:s')]);
         $this->setCollection($collection);
         return parent::_prepareCollection();
     }
@@ -202,8 +204,15 @@ class Banners extends \Magento\Backend\Block\Widget\Grid\Extended
             if ($uploadfiles) {
                 $store = $this->storeManager->getStore();
                 $mediaUrl = $store->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
-                $url = $mediaUrl . 'Yudiz/BannerSlider/' . $uploadfiles;
-                return '<a href="' . $url . '" target="_blank">' . $uploadfiles . '</a>';
+                $url = $mediaUrl . $uploadfiles;
+                if (strpos($uploadfiles, 'mp4') !== false) {
+                    $label = 'Video';
+                } elseif (strpos($uploadfiles, 'gif') !== false) {
+                    $label = 'Giphy Image';
+                } else {
+                    $label = 'Image';
+                }
+                return '<a href="' . $url . '" target="_blank">' . $label . '</a>';
             }
         } elseif ($mediatype == 2) {
             $externalvideo = $row->getData('externalvideo');

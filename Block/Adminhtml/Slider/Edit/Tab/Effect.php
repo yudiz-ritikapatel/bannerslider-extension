@@ -81,17 +81,15 @@ class Effect extends Generic implements \Magento\Backend\Block\Widget\Tab\TabInt
             ]
         );
         $autoplayTimeout = $fieldset->addField(
-            'autoplayTimeout',
+            'autoplay_timeout',
             'select',
             [
-                'name' => 'autoplayTimeout',
+                'name' => 'autoplay_timeout',
                 'label' => __('Set AutoPlay Timeout(seconds)'),
-                'id' => 'autoplayTimeout',
+                'id' => 'autoplay_timeout',
                 'title' => __('Set AutoPlay Timeout(seconds)'),
                 'options' => [
                     3 => 3,
-                    1 => 1,
-                    2 => 2,
                     4 => 4,
                     5 => 5,
                     6 => 6,
@@ -100,20 +98,20 @@ class Effect extends Generic implements \Magento\Backend\Block\Widget\Tab\TabInt
                     9 => 9,
                     10 => 10,
                 ],
-                'class' => 'autoplayTimeout',
+                'class' => 'autoplay_timeout',
             ]
         );
         $fieldset->addField(
-            'reverseslide',
+            'reverse_slide',
             'select',
             [
-                'name' => 'reverseslide',
+                'name' => 'reverse_slide',
                 'label' => __('Reverse Slide(L to R)'),
-                'id' => 'reverseslide',
+                'id' => 'reverse_slide',
                 'title' => __('Reverse Slide(L to R)'),
                 'options' => [0 => __('No'), 1 => __('Yes')],
                 'note' => __('Enable Auto Slider'),
-                'class' => 'reverseslide',
+                'class' => 'reverse_slide',
             ]
         );
         $fieldset->addField(
