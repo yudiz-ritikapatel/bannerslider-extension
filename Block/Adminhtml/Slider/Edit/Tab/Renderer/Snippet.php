@@ -28,13 +28,14 @@ class Snippet extends AbstractElement
 
         $html = '<ul class="banner-location-display"><li style="padding-bottom:10px;"><span>';
         $html .= __('CMS Page/Static Block');
-        $html .= '</span><code>  <br/>{{block class="Yudiz\BannerSlider\Block\Showdata"
+        $html .= '</span><code style="background-color:#dfe7f5;font-weight: bold;">  
+                  <br/>{{block class="Yudiz\BannerSlider\Block\Showdata"
                   slider_id="' . $sliderId . '" template="Yudiz_BannerSlider::index.phtml"}}</code><p>';
-        $html .= __('<span style="background-color:#dfe7f5;font-weight: bold;"> 
-                  You can paste the above line into any page in Magento 2 and set SliderId for it.</span>');
+        $html .= __('<span> 
+                   If you want to add a slider using CMS Page/Static Block, then use this.</span>');
         $html .= '</p></li><li><span>';
         $html .= __('Template .phtml file');
-        $html .= '</span><code><br/>';
+        $html .= '</span><code  style="background-color:#dfe7f5;font-weight: bold;"><br/>';
         $html .= $this->_escaper->escapeHtml('$block = $this->getLayout()
                  ->createBlock(\'Yudiz\BannerSlider\Block\ShowData\');');
         $html .= '</br>';
@@ -44,8 +45,8 @@ class Snippet extends AbstractElement
         (\'Yudiz_BannerSlider::index.phtml\')->toHtml();');
         $html .= '</br>';
         $html .= '</code><p>';
-        $html .= __('<span style="background-color:#dfe7f5;font-weight: bold;">
-         Open a .phtml file and insert where you want to display Banner Slider.</span>');
+        $html .= __('<span>
+        If you want to add a slider using PHTML, then use this.</span>');
         $html .= '</p></li></ul>';
         
         return $html;

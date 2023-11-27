@@ -77,7 +77,7 @@ class Save extends \Magento\Backend\App\Action
                 $this->createNewRecord($data, $filedata, $rowData, $fileName);
             }
         } catch (\Exception $e) {
-            $this->messageManager->addError(__($e->getMessage()));
+            $this->messageManager->addErrorMessage(__($e->getMessage()));
         }
         $this->_redirect('bannerslider/grid/index');
     }

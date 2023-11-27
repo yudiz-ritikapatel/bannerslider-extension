@@ -73,6 +73,7 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic
             'title'       => __('Start Date'),
             'date_format' => \Magento\Framework\Stdlib\DateTime::DATE_INTERNAL_FORMAT,
             'class'       => 'validate-date validate-date-range date-range-custom_theme-from',
+            'required' => true,
         ]);
 
         $fieldset->addField('end_date', 'date', [
@@ -81,6 +82,7 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic
             'title'         => __('End Date'),
             'date_format'   => \Magento\Framework\Stdlib\DateTime::DATE_INTERNAL_FORMAT,
             'class'         => 'validate-date validate-date-range date-range-custom_theme-from',
+            'required' => true,
         ]);
 
         $fieldset->addField(

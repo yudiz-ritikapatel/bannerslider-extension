@@ -161,7 +161,7 @@ Login to the **Magento Admin**, navigate to `Yudiz BannerSlider -> Configuration
 
 How to Create New Banner
 
-From the `Admin Panel`, navigate to `Yudiz BannerSlider -> Manage Banner`, in the right side, click on  `Add New Banner Content` button.
+From the `Admin Panel`, navigate to `Yudiz BannerSlider -> Manage Banner`, in the right side, click on  `Add New Banner` button.
 
 #### 6.2.1  Banner Information
 
@@ -182,7 +182,7 @@ To get started, follow these steps:
 
 Access the Admin Panel and navigate to Yudiz BannerSlider -> Manage Banner.
 
-On the right side of the page, click the Add New Banner Content button.
+On the right side of the page, click the Add New Banner button.
 
 You will now be prompted to choose a MediaType. There are two options available:
 
