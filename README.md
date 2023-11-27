@@ -36,11 +36,8 @@ composer require yudiz/banner-slider-extension
 After a successful installation, execute the following commands:
 
 ```shell
-php bin/magento setup:upgrade
 php bin/magento setup:di:compile
-php bin/magento setup:static-content:deploy
-php bin/magento c:c
-php bin/magento c:f
+php bin/magento setup:static-content:deploy -f
 ```
 
 With these steps completed, you'll be ready to utilize the Yudiz BannerSlider Extension.
@@ -64,10 +61,7 @@ project-root-directory/app/code/
 Indeed, after placing the extension folder in the specified directory, follow these Magento commands to complete the installation:
 ```shell
 php bin/magento setup:upgrade
-php bin/magento setup:di:compile
-php bin/magento setup:static-content:deploy
-php bin/magento c:c
-php bin/magento c:f
+php bin/magento setup:static-content:deploy -f
 ```
 
 By following these 2 Ways you can easily obtain and install the module.  For detailed instructions on its usage, refer to the user guide within this document.
