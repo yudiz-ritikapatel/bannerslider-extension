@@ -90,6 +90,7 @@ Animation effects can considerably better the Sliders' appearance, and make them
 - Set Slider Margin
 - Fade In
 - Fade Out
+- Enable Controls for YT-Videos
 
 ## 4. Additional Features
 
