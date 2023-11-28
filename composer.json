@@ -3,9 +3,7 @@
     "description": "Magento 2 Banner Slider Module",
     "type": "magento2-module",
     "require": {
-        "php": "~7.1.0|~7.1.3|~7.2.0|~7.2.34|~7.3.0|~7.4.0|~7.4.33|~8.2.0",
-        "magento/framework": "100.0.*|100.1.*|101.0.*|102.0.*|103.0.*",
-        "magento/module-backend": "100.0.*|100.1.*|100.2.*|101.0.*|102.0.*"
+        "yudiz/module-core": "^1.0.0"
     },
     "version": "1.0.0",
     "authors": [
