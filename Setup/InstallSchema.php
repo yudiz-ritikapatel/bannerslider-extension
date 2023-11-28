@@ -134,7 +134,7 @@ class InstallSchema implements InstallSchemaInterface
                     Table::TYPE_TEXT,
                     255,
                     ['nullable' => false],
-                    'Youtube Video Controls'
+                    'External Video Controls'
                 )
                 ->setComment('Slider Table');
 

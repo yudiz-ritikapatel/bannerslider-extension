@@ -16,7 +16,7 @@ type SliderData {
     show_dots: String @doc(description: "Get Slider Dots Navigation button")   
     margin: String @doc(description: "Get Slider Margin Value")
     effect: String @doc(description: "Get Slider effect Value")
-    controls: String @doc(description: "Get Slider Youtube Video controls Value")
+    controls: String @doc(description: "Get Slider External Video controls Value")
     bannerdata: [BannerData] @doc(description: "Get Banner Data") 
 }
 

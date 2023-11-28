@@ -180,9 +180,9 @@ class Effect extends Generic implements \Magento\Backend\Block\Widget\Tab\TabInt
             'select',
             [
                 'name' => 'controls',
-                'label' => __('Enable Controls in Youtube Video'),
+                'label' => __('Enable Controls in External Video'),
                 'id' => 'controls',
-                'title' => __('Enable Controls in Youtube Video'),
+                'title' => __('Enable Controls in External Video'),
                 'options' => [0 => __('No'), 1 => __('Yes')],
                 'class' => 'controls',
                 'value'=>1           ]
