@@ -2,7 +2,7 @@
 
 The Magento 2 Banner Slider is a fantastic marketing tool that empowers online store owners to showcase an unlimited number of captivating banner sliders on their Ecommerce website. This delightful extension is designed to captivate the attention of customers and enhance their online shopping experience with its user-friendly interface.
 
-The Magento 2 Banner Slider Module not only allows you to create engaging banner sliders but also provides the flexibility to include various media types. With this module, you can effortlessly add not only images but also videos, including YouTube videos, to your banner sliders. This feature adds a dynamic and interactive element to your website, making it a versatile tool for showcasing your content and captivating your audience.
+The Magento 2 Banner Slider Module not only allows you to create engaging banner sliders but also provides the flexibility to include various media types. With this module, you can effortlessly add not only images but also videos, including External videos, to your banner sliders. This feature adds a dynamic and interactive element to your website, making it a versatile tool for showcasing your content and captivating your audience.
 
 The BannerSlider Extension comes equipped with its own GraphQL functionality, which can be identified under the name "YudizBannerSlider."
 
@@ -74,7 +74,7 @@ By following these 2 Ways you can easily obtain and install the module.  For det
 
 The Banner Slider Extension provides store owners with the incredible capability to upload an unlimited number of banners effortlessly.This versatile tool offers support for a wide range of image formats, such as .jpg, .jpeg, .gif,.mp4 and .png, ensuring flexibility in your design choices.
 
-Furthermore, this extension takes it a step further by enabling you to upload videos, including .mp4 and .gif files, providing an engaging multimedia experience for your website visitors. You can also seamlessly integrate YouTube links into your content. This comprehensive feature set allows you to create captivating and interactive banner sliders that enhance your website's appeal and engagement.
+Furthermore, this extension takes it a step further by enabling you to upload videos, including .mp4 and .gif files, providing an engaging multimedia experience for your website visitors. You can also seamlessly integrate External links into your content. This comprehensive feature set allows you to create captivating and interactive banner sliders that enhance your website's appeal and engagement.
 
 ### Optional animation effects to show Slider
 
@@ -108,7 +108,7 @@ Adjust the time period for which you wish to showcase a specific banner before i
 
 #### Activate Hover-Triggered Autoplay
 
-Implement a feature that triggers autoplay when hovering over the video or YouTube video, while automatically pausing it when the cursor is no longer over the video.
+Implement a feature that triggers autoplay when hovering over the video or External video, while automatically pausing it when the cursor is no longer over the video.
 
 
 ## 5. Full features of Banner Slider
@@ -126,11 +126,11 @@ Implement a feature that triggers autoplay when hovering over the video or YouTu
 - Name of the Banner
 - Description of the Banner
 - Enable/disable the Banner
-- Optional types of MediaType: Image/Video/Youtube Video
+- Optional types of MediaType: Image/Video/External Video
 - Insert MediaType as a Banner
-- Edit or add Images/Video/Youtube Video for Banners by Editor
+- Edit or add Images/Video/External Video for Banners by Editor
 - Add URL to a banner
-- In Banners Grid Images/Video/Youtube Video when click on it it will redirect to the new page
+- In Banners Grid Images/Video/External Video when click on it it will redirect to the new page
 - Add/Update/Delete all Banners in a grids
 
 #### Slider Configuration  
@@ -190,7 +190,7 @@ On the right side of the page, click the Add New Banner button.
 You will now be prompted to choose a MediaType. There are two options available:
 
 - Image/Video (From Your Device): This option allows you to upload image or video files directly from your device.
-- External Video (YouTube Video Link): Select this option to include a YouTube video by providing its link.
+- External Video (External Video Link): Select this option to include a External video by providing its link.
 
 After making your MediaType selection and fill other Fields,save the banner.
 
@@ -227,7 +227,7 @@ In the Slider Information section, you'll find three tabs: Main, Effects, and Se
 - Show Dots Navigation Button: Enable/Disable this option for show Dots Navigation button.
 - Set Slider Margin: Set the margin for the Slider.
 - Fade In/Fade Out Effect: Choose whether to incorporate a fade-in/fade-out effect in the Slider.
-- Enable Controls in Youtube Video: Enable/Disable this option for sControls in Youtube Video.
+- Enable Controls in External Video: Enable/Disable this option for sControls in External Video.
 
 2.1 Demo:  Effect Tab
 

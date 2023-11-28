@@ -15,12 +15,11 @@ $mediaPath = $block->getMediaPath();
         width: 100%;
         height: 100%;
     }
-
+    .carousel-wrap .youtube-video iframe { aspect-ratio: 1 / 0.56; }
     .carousel-wrap {
         padding: 0px;
         width: 100%;
     }
-
     .carousel-wrap .image-container img,
     .carousel-wrap .video-container video {
         object-fit: cover;
@@ -126,7 +125,7 @@ $mediaPath = $block->getMediaPath();
                 autoplay: AutoPlay,
                 autoplayTimeout: AutoPlayTimeout,
                 autoplayHoverPause: true,
-                autoHeight: true,
+                // autoHeight: true,
                 responsive: {
                     0: {
                         items: 1
