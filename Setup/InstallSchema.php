@@ -129,6 +129,13 @@ class InstallSchema implements InstallSchemaInterface
                     ['nullable' => false],
                     'Animation Effect'
                 )
+                ->addColumn(
+                    'controls',
+                    Table::TYPE_TEXT,
+                    255,
+                    ['nullable' => false],
+                    'Youtube Video Controls'
+                )
                 ->setComment('Slider Table');
 
             $installer->getConnection()->createTable($table);

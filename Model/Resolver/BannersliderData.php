@@ -90,6 +90,7 @@ class BannersliderData implements ResolverInterface
                                 'show_dots' => $SliderData['show_dots'],
                                 'margin' => $SliderData['margin'],
                                 'effect' => $SliderData['effect'],
+                                'controls' => $SliderData['controls'],
                                 'bannerdata' => $this->showdataBlock->getbannerdata($sliderId),
                             ];
                             return $sliderData;

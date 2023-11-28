@@ -63,7 +63,8 @@ $mediaPath = $block->getMediaPath();
                         if (preg_match('/\?v=([a-zA-Z0-9_-]+)/i', $videoUrl, $matches)) {
                             $videoId = $matches[1];
                         }
-                        $embedUrl = "https://www.youtube.com/embed/$videoId?rel=0&amp;showinfo=0";
+                        $controls = $sliderData['controls'];
+                        $embedUrl = "https://www.youtube.com/embed/$videoId?rel=0&amp;showinfo=0&amp;controls=$controls";
                         ?>
                          <iframe class="iframevideo"
                                 width="100%"

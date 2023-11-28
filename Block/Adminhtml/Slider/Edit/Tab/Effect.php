@@ -175,6 +175,18 @@ class Effect extends Generic implements \Magento\Backend\Block\Widget\Tab\TabInt
                 'class' => 'effect',
             ]
         );
+        $fieldset->addField(
+            'controls',
+            'select',
+            [
+                'name' => 'controls',
+                'label' => __('Enable Controls in Youtube Video'),
+                'id' => 'controls',
+                'title' => __('Enable Controls in Youtube Video'),
+                'options' => [0 => __('No'), 1 => __('Yes')],
+                'class' => 'controls',
+                'value'=>1           ]
+        );
 
         $form->setValues($model->getData());
         $this->setForm($form);
