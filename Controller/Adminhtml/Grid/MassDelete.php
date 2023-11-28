@@ -82,7 +82,7 @@ class MassDelete extends \Magento\Backend\App\Action
             $this->deleteById($item->getBannerId());
             $delete++;
         }
-        $this->messageManager->addSuccessMessage(__('A total of %1 Banner Content have been deleted.', $delete));
+        $this->messageManager->addSuccessMessage(__('A total of %1 Banner have been deleted.', $delete));
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setPath('*/grid/index');
     }

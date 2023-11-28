@@ -16,7 +16,7 @@
 namespace Yudiz\BannerSlider\Block\Adminhtml;
 
 /**
- * Adminhtml BannerSlider content block
+ * Adminhtml BannerSlider block
  */
 class BannerSlider extends \Magento\Backend\Block\Widget\Grid\Container
 {

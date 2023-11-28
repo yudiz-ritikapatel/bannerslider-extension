@@ -25,24 +25,25 @@ Before installing the Yudiz BannerSlider Extension, it is necessary to install t
 
 https://github.com/yudiz-ritikapatel/yudiz-core
 
-Once the zip file is downloaded, extract its contents within the 'app/code' directory.
+Once the zip file is downloaded, extract its contents within the 'app/code/Yudiz/Core' directory.
 
 Now, To install the Yudiz BannerSlider Extension via Composer, follow these steps in your Magento 2 root folder:
 
 Run the following command:
 ```shell
-composer require yudiz/banner-slider-extension
+composer require yudiz/bannerslider
 ```
 After a successful installation, execute the following commands:
 
 ```shell
-php bin/magento setup:di:compile
+php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy -f
+php bin/magento c:c
 ```
 
 With these steps completed, you'll be ready to utilize the Yudiz BannerSlider Extension.
 
-### 2.2 Downlod Directly
+### 2.2 Download Directly
 
 you can download the module directly from the following link:
 
@@ -55,13 +56,14 @@ After successfully downloading the module, follow these steps to install it:
 2.Place the unzipped extension folder into the following path:
 
 ```shell
-project-root-directory/app/code/
+project-root-directory/app/code/Yudiz/BannerSlider
 ```
 
 Indeed, after placing the extension folder in the specified directory, follow these Magento commands to complete the installation:
 ```shell
 php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy -f
+php bin/magento c:c
 ```
 
 By following these 2 Ways you can easily obtain and install the module.  For detailed instructions on its usage, refer to the user guide within this document.
@@ -189,7 +191,7 @@ You will now be prompted to choose a MediaType. There are two options available:
 - Image/Video (From Your Device): This option allows you to upload image or video files directly from your device.
 - External Video (YouTube Video Link): Select this option to include a YouTube video by providing its link.
 
-After making your MediaType selection and fill other Fields,save the banner content.
+After making your MediaType selection and fill other Fields,save the banner.
 
 Once saved, you can view the grid of banners. In this grid, you will find a column labeled "name image/video/externalvideo." Clicking on this column will redirect you to the specific image or video associated with the banner.
 

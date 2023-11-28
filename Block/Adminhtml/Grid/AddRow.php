@@ -46,7 +46,7 @@ class AddRow extends \Magento\Backend\Block\Widget\Form\Container
         $this->_controller = 'adminhtml_grid';
         parent::_construct();
         if ($this->_isAllowedAction('Yudiz_BannerSlider::add_row')) {
-            $this->buttonList->update('save', 'label', __('Save Banner Content'));
+            $this->buttonList->update('save', 'label', __('Save Banner'));
         } else {
             $this->buttonList->remove('save');
         }
@@ -95,7 +95,7 @@ class AddRow extends \Magento\Backend\Block\Widget\Form\Container
 
     public function getHeaderText()
     {
-        return __('Add Banner Content');
+        return __('Add Banner');
     }
 
     protected function _isAllowedAction($resourceId)

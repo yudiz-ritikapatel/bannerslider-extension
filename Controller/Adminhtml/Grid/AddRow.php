@@ -47,7 +47,7 @@ class AddRow extends Action
             $rowData = $rowData->load($rowId);
             $rowTitle = $rowData->getTitle();
             if (!$rowData->getBannerId()) {
-                $this->messageManager->addErrorMessage(__('Banner content data no longer exist.'));
+                $this->messageManager->addErrorMessage(__('Banner data no longer exist.'));
                 $this->_redirect('bannerslider/grid/rowdata');
                 return;
             }
@@ -55,7 +55,7 @@ class AddRow extends Action
 
         $this->coreRegistry->register('row_data', $rowData);
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-        $title = $rowId ? __('Edit Banner Content') . $rowTitle : __('Add Banner Content');
+        $title = $rowId ? __('Edit Banner') . $rowTitle : __('Add Banner');
         $resultPage->getConfig()->getTitle()->prepend($title);
 
         return $resultPage;

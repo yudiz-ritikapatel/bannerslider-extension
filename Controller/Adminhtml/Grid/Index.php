@@ -44,7 +44,7 @@ class Index extends \Magento\Backend\App\Action
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->_resultPageFactory->create();
         $resultPage->setActiveMenu('Yudiz_BannerSlider::grid_list');
-        $resultPage->getConfig()->getTitle()->prepend(__('Banner Content'));
+        $resultPage->getConfig()->getTitle()->prepend(__(' Banner List'));
         return $resultPage;
     }
 

@@ -31,13 +31,13 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic
         if ($model->getBannerId()) {
             $fieldset = $form->addFieldset(
                 'base_fieldset',
-                ['legend' => __('Edit Banner Content'), 'class' => 'fieldset-wide']
+                ['legend' => __('Edit Banner'), 'class' => 'fieldset-wide']
             );
             $fieldset->addField('banner_id', 'hidden', ['name' => 'banner_id']);
         } else {
             $fieldset = $form->addFieldset(
                 'base_fieldset',
-                ['legend' => __('Add Banner Content'), 'class' => 'fieldset-wide']
+                ['legend' => __('Add Banner'), 'class' => 'fieldset-wide']
             );
         }
         $fieldset->addField(

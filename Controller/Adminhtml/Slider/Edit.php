@@ -106,7 +106,7 @@ class Edit extends \Magento\Backend\App\Action
         $this->_coreRegistry->register('yudiz_slider', $model);
 
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-        $title = $id ? __('Edit Slider Content') . $rowTitle : __('Add Slider Content');
+        $title = $id ? __('Edit Slider') . $rowTitle : __('Add Slider');
         $resultPage->getConfig()->getTitle()->prepend($title);
 
         return $resultPage;

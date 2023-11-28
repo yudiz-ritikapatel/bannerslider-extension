@@ -142,8 +142,8 @@ class Save extends \Magento\Backend\App\Action
     {
         $this->messageManager->addSuccessMessage(
             isset($data['banner_id'])
-                ? __("Banner Content Data Updated Successfully.")
-                : __("Banner Content Data has been Added successfully.")
+                ? __("Banner Data Updated Successfully.")
+                : __("Banner Data has been Added successfully.")
         );
         if ($this->getRequest()->getParam('back')) {
             $this->_redirect('*/*/addrow', ['id' => $rowData->getId(), '_current' => true]);

@@ -82,7 +82,7 @@ class MassStatus extends \Magento\Backend\App\Action
             $this->setStatus($item->getBannerId(), $this->getRequest()->getParam('status'));
             $status++;
         }
-        $this->messageManager->addSuccessMessage(__('A total of %1 Banner Content were updated.', $status));
+        $this->messageManager->addSuccessMessage(__('A total of %1 Banner were updated.', $status));
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setPath('*/*/');
     }

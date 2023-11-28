@@ -65,14 +65,14 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
         if ($model->getSliderId()) {
             $fieldset = $form->addFieldset(
                 'base_fieldset',
-                ['legend' => __('Edit Slider Content'), 'class' => 'fieldset-wide']
+                ['legend' => __('Edit Slider'), 'class' => 'fieldset-wide']
             );
             $fieldset->addField('slider_id', 'hidden', ['name' => 'slider_id']);
             $sliderId = $model->getSliderId();
         } else {
             $fieldset = $form->addFieldset(
                 'base_fieldset',
-                ['legend' => __('Add Slider Content'), 'class' => 'fieldset-wide']
+                ['legend' => __('Add Slider'), 'class' => 'fieldset-wide']
             );
             $sliderIdRaw = $bannerslidersCollection->getConnection()->fetchRow("SHOW TABLE STATUS LIKE '$tableName'");
             $sliderId = $sliderIdRaw['Auto_increment'];
