@@ -226,6 +226,7 @@ In the Slider Information section, you'll find three tabs: Main, Effects, and Se
 - Show Dots Navigation Button: Enable/Disable this option for show Dots Navigation button.
 - Set Slider Margin: Set the margin for the Slider.
 - Fade In/Fade Out Effect: Choose whether to incorporate a fade-in/fade-out effect in the Slider.
+- Enable Controls in Youtube Video: Enable/Disable this option for sControls in Youtube Video.
 
 2.1 Demo:  Effect Tab
 
