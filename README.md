@@ -190,7 +190,7 @@ On the right side of the page, click the Add New Banner button.
 You will now be prompted to choose a MediaType. There are two options available:
 
 - Image/Video (From Your Device): This option allows you to upload image or video files directly from your device.
-- External Video (External Video Link): Select this option to include a External video by providing its link.
+- External Video : Select this option to include a External video by providing its link.
 
 After making your MediaType selection and fill other Fields,save the banner.
 
