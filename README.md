@@ -23,10 +23,10 @@ You can install the Yudiz BannerSlider Extension using one of two methods: via C
 
 Before installing the Yudiz BannerSlider Extension, it is necessary to install the Yudiz Core module. You can obtain the Yudiz Core module by using the following code.
 
-https://github.com/yudiz-ritikapatel/yudiz-core
-
-Once the zip file is downloaded, extract its contents within the 'app/code/Yudiz/Core' directory.
-
+Run the following command:
+```shell
+composer require yudiz/module-core
+```
 Now, To install the Yudiz BannerSlider Extension via Composer, follow these steps in your Magento 2 root folder:
 
 Run the following command:
@@ -45,7 +45,13 @@ With these steps completed, you'll be ready to utilize the Yudiz BannerSlider Ex
 
 ### 2.2 Download Directly
 
-you can download the module directly from the following link:
+Before Downloading the Yudiz BannerSlider Extension, it is necessary to have the Yudiz Core module. You can download the module directly from below link:
+
+https://github.com/yudiz-ritikapatel/yudiz-core
+
+Once the zip file is downloaded, extract its contents within the 'app/code/Yudiz/Core' directory.
+
+Now, To install the Yudiz BannerSlider Extension you can download the Extension from below link:
 
 https://github.com/yudiz-ritikapatel/bannerslider-extension
 
