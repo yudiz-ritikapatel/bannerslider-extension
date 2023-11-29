@@ -3,9 +3,16 @@
     "description": "Magento 2 Banner Slider Module",
     "type": "magento2-module",
     "require": {
-        "yudiz/module-core": "^1.0.0"
+        "yudiz/module-core": "^1.0.0",
+        "yudiz/bannerslider": "1.0.0"
     },
     "version": "1.0.0",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/yudiz-ritikapatel/bannerslider-extension.git"
+        }
+    ],    
     "authors": [
         {
             "name": "Yudiz Solutions Ltd.",
