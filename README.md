@@ -283,7 +283,8 @@ A. Using the first option, if you wish to display your slider on a specific page
 <div>
     <img src="./ReadmeImages/Using_CMSBlock.png" alt="SelectBannersTab">
 </div>
-</br>
+</br></br>
+
 - Save your changes, and then proceed to execute the following command:
 
 ```shell
