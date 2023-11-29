@@ -1,4 +1,4 @@
-# Banner Slider Extension for Magento 2 by Yudiz Solutions LTD.
+# Banner Slider Extension for Magento 2
 
 The Magento 2 Banner Slider is a fantastic marketing tool that empowers online store owners to showcase an unlimited number of captivating banner sliders on their Ecommerce website. This delightful extension is designed to captivate the attention of customers and enhance their online shopping experience with its user-friendly interface.
 
