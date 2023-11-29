@@ -7,12 +7,6 @@
         "yudiz/bannerslider": "1.0.0"
     },
     "version": "1.0.0",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/yudiz-ritikapatel/bannerslider-extension.git"
-        }
-    ],    
     "authors": [
         {
             "name": "Yudiz Solutions Ltd.",
