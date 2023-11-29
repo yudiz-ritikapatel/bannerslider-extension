@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="yudiz_slider" resource="default" engine="innodb" comment="Slider Table">
+        <column xsi:type="int" name="slider_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Slider ID"/>
+        <column xsi:type="timestamp" name="creation_time" nullable="false" default="CURRENT_TIMESTAMP" comment="Creation Time"/>
+        <column xsi:type="timestamp" name="update_time" nullable="false" default="CURRENT_TIMESTAMP" on_update="CURRENT_TIMESTAMP" comment="Update Time"/>
+        <column xsi:type="smallint" name="status" nullable="false" default="1" comment="Active Status"/>
+        <column xsi:type="text" name="name" nullable="false" length="255" comment="Slider Name"/>
+        <column xsi:type="text" name="description" nullable="false" length="64k" comment="Description"/>
+        <column xsi:type="int" name="autoplay" nullable="false" comment="Auto Slider"/>
+        <column xsi:type="int" name="autoplay_timeout" nullable="false" comment="Auto Play Timeout"/>
+        <column xsi:type="int" name="reverse_slide" nullable="false" comment="Reverse Slider"/>
+        <column xsi:type="int" name="previous_next" nullable="false" comment="Previous Next Button"/>
+        <column xsi:type="int" name="show_dots" nullable="false" comment="Show Dots Navigation"/>
+        <column xsi:type="int" name="margin" nullable="false" comment="Margin"/>
+        <column xsi:type="text" name="effect" nullable="false" length="255" comment="Animation Effect"/>
+        <column xsi:type="text" name="controls" nullable="false" length="255" comment="External Video Controls"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="slider_id"/>
+        </constraint>
+    </table>
+    
+    <table name="yudiz_slider_banner_attachment" resource="default" engine="innodb" comment="Slider Banner Attachment relation table">
+        <column xsi:type="int" name="slider_id" nullable="false" unsigned="true" comment="Slider ID"/>
+        <column xsi:type="int" name="banner_id" nullable="false" unsigned="true" comment="Banner ID"/>
+        <constraint xsi:type="foreign" referenceId="FK_SLIDER_BANNER_ATTACHMENT_SLIDER_ID_SLIDER_SLIDER_ID" table="yudiz_slider_banner_attachment" column="slider_id" referenceTable="yudiz_slider" referenceColumn="slider_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="FK_SLIDER_BANNER_ATTACHMENT_BANNER_ID_BANNER_BANNER_ID" table="yudiz_slider_banner_attachment" column="banner_id" referenceTable="yudiz_banner" referenceColumn="banner_id" onDelete="CASCADE"/>
+        <index referenceId="IDX_SLIDER_BANNER_ATTACHMENT_SLIDER_ID" indexType="index">
+            <column name="slider_id"/>
+        </index>
+        <index referenceId="IDX_SLIDER_BANNER_ATTACHMENT_BANNER_ID" indexType="index">
+            <column name="banner_id"/>
+        </index>
+    </table>
+    
+    <table name="yudiz_banner" resource="default" engine="innodb" comment="Banners Table">
+        <column xsi:type="int" name="banner_id" nullable="false" unsigned="true" identity="true" primary="true" comment="Banner ID"/>
+        <column xsi:type="smallint" name="status" nullable="false" default="0" comment="Status"/>
+        <column xsi:type="text" name="name" nullable="false" length="255" comment="Name"/>
+        <column xsi:type="datetime" name="start_date" nullable="false" comment="Start Date"/>
+        <column xsi:type="datetime" name="end_date" nullable="false" comment="End Date"/>
+        <column xsi:type="text" name="description" nullable="true" length="64k" comment="Description"/>
+        <column xsi:type="smallint" name="mediatype" nullable="false" default="0" comment="Media Type"/>
+        <column xsi:type="text" name="uploadfiles" nullable="false" length="255" comment="Uploaded Files"/>
+        <column xsi:type="text" name="externalvideo" nullable="false" length="255" comment="External Video"/>
+        <column xsi:type="timestamp" name="creation_time" nullable="false" default="CURRENT_TIMESTAMP" comment="Creation Time"/>
+        <column xsi:type="timestamp" name="update_time" nullable="false" default="CURRENT_TIMESTAMP" on_update="CURRENT_TIMESTAMP" comment="Update Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="banner_id"/>
+        </constraint>
+    </table>
+</schema>

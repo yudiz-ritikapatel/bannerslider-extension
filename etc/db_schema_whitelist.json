@@ -1,0 +1,55 @@
+{
+    "yudiz_slider": {
+        "column": {
+            "slider_id": true,
+            "creation_time": true,
+            "update_time": true,
+            "status": true,
+            "name": true,
+            "description": true,
+            "autoplay": true,
+            "autoplay_timeout": true,
+            "reverse_slide": true,
+            "previous_next": true,
+            "show_dots": true,
+            "margin": true,
+            "effect": true,
+            "controls": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "yudiz_slider_banner_attachment": {
+        "column": {
+            "slider_id": true,
+            "banner_id": true
+        },
+        "index": {
+            "YUDIZ_SLIDER_BANNER_ATTACHMENT_SLIDER_ID": true,
+            "YUDIZ_SLIDER_BANNER_ATTACHMENT_BANNER_ID": true
+        },
+        "constraint": {
+            "YUDIZ_SLIDER_BANNER_ATTACHMENT_SLIDER_ID_YUDIZ_SLIDER_SLIDER_ID": true,
+            "YUDIZ_SLIDER_BANNER_ATTACHMENT_BANNER_ID_YUDIZ_BANNER_BANNER_ID": true
+        }
+    },
+    "yudiz_banner": {
+        "column": {
+            "banner_id": true,
+            "status": true,
+            "name": true,
+            "start_date": true,
+            "end_date": true,
+            "description": true,
+            "mediatype": true,
+            "uploadfiles": true,
+            "externalvideo": true,
+            "creation_time": true,
+            "update_time": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
