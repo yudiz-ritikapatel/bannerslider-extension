@@ -17,7 +17,7 @@ The BannerSlider Extension comes equipped with its own GraphQL functionality, wh
 
 ## 2.Installation
 
-You can install the Yudiz BannerSlider Extension using one of two methods: via Composer or by downloading it directly from the available source.
+You can install the Yudiz BannerSlider Extension using one of two methods: 1. Via Composer 2. By downloading it directly from the available source.
 
 ### 2.1  Install via composer
 
