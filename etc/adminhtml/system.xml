@@ -1,34 +1,30 @@
 <?xml version="1.0"?>
-<!--
-/**
- * Yudiz
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Yudiz
- * @package     Yudiz_BannerSlider
- * @copyright   Copyright (c) 2023 Yudiz (https://www.Yudiz.com/)
- */
--->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="bannerslider" translate="label" sortOrder="10">
+         <tab id="yudiz_extensions" translate="label" sortOrder="10">
             <label>Yudiz Extensions</label>
         </tab>
-        <section id="bannerslider" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
-            <class>separator-top</class>
-            <label>Banner Slider</label>
-            <tab>bannerslider</tab>
-            <resource>Yudiz_BannerSlider::bannerslider_config</resource>
+        <section id="ordernotification" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Order Notification</label>
+            <tab>yudiz_extensions</tab>
+            <resource>Yudiz_Ordernotification::configuration</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
-                <label>General Configuration</label>
-                <field id="enable_bannerslider" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Settings</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Module Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
+                <field id="audio_type" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Sound Type</label>
+                    <source_model>Yudiz\Ordernotification\Model\Config\Source\Soundtype</source_model>
+                    <comment>Please select you want to play speech or play sound only.</comment>
+                </field>
+                <field id="audio_file_upload" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0" >
+                    <label>Upload soud file</label>
+                    <backend_model>Yudiz\Ordernotification\Model\Config\Backend\File\CustomFileType</backend_model>
+                    <upload_dir config="system/sound" scope_info="1">order_sound</upload_dir>
+                    <comment><![CDATA[Allowed file types: 'mp3', 'mp4', 'wav', 'wma', 'aac']]></comment>
+                </field>            
             </group>
         </section>
     </system>
